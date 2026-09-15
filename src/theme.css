@@ -1,0 +1,125 @@
+/* GardeFlux's shared theme: dark-mode-only design tokens (no light mode
+ * exists — color-scheme is hardcoded below), consumed by every frontend
+ * repo via `@import "gardeflux-ui/theme.css";` in that app's own
+ * globals.css. Canvas-specific overrides (the pipeline editor's react-flow
+ * reskin) live in gardeflux-dashboard instead, not here — gardeflux-web and
+ * gardeflux-docs never render that canvas. */
+@import "tailwindcss";
+
+:root {
+  --background: #0a0b0a;
+  --background-elevated: #0e100e;
+  --surface: #131513;
+  --surface-hover: #191d19;
+  --border: #22261f;
+  --border-strong: #2e332a;
+  --foreground: #f3f5f1;
+  --muted: #949c92;
+  --muted-foreground: #676f65;
+  --accent: #22c55e;
+  --accent-hover: #16a34a;
+  --accent-soft: #142e1c;
+  --accent-foreground: #04140b;
+  --danger: #ef4444;
+  --danger-soft: #2c1516;
+  --warning: #f59e0b;
+  --warning-soft: #2a2013;
+  --info: #3b82f6;
+  --info-soft: #14203a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-background-elevated: var(--background-elevated);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+
+  --font-sans: var(--font-poppins);
+  --font-mono: var(--font-jetbrains-mono);
+  --font-display: var(--font-poppins);
+
+  --animate-fade-up: fade-up 0.6s ease forwards;
+  --animate-fade-down: fade-down 0.18s ease forwards;
+  --animate-pulse-slow: pulse-slow 3s ease-in-out infinite;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fade-down {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+  font-size: 14px;
+  background: var(--color-background);
+}
+
+body {
+  color: var(--color-foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-accent-foreground);
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--color-border) 60%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--color-border) 60%, transparent) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.font-display {
+  font-family: var(--font-display), Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  scrollbar-width: none;
+}

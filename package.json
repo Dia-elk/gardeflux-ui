@@ -1,0 +1,30 @@
+{
+  "name": "gardeflux-ui",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Shared design system (Button, Container, Reveal, SectionHeading, theme tokens, ...) for gardeflux-dashboard, gardeflux-web, and gardeflux-docs.",
+  "exports": {
+    ".": "./src/index.ts",
+    "./theme.css": "./src/theme.css"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": "^19",
+    "next": "^16"
+  },
+  "dependencies": {
+    "@heroicons/react": "^2.2.0",
+    "clsx": "^2.1.1",
+    "gsap": "^3.15.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.5",
+    "typescript": "^5"
+  }
+}
