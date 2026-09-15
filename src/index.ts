@@ -1,4 +1,5 @@
 export { Badge } from "./components/Badge";
+export { BrandMark } from "./components/BrandMark";
 export { Button } from "./components/Button";
 export { Checkbox } from "./components/Checkbox";
 export { Container } from "./components/Container";
